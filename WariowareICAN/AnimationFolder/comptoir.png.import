@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhxp3j0amn6mi"
-path="res://.godot/imported/beige-plaster-wall-texture-background-picture-id513444928.png-6aa19a86a46ddd5a6d8f113dc640826e.ctex"
+uid="uid://ddoi2rwijgbcu"
+path="res://.godot/imported/comptoir.png-94609fe658f067eb5fc3c8232c1546de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://AnimationFolder/beige-plaster-wall-texture-background-picture-id513444928.png"
-dest_files=["res://.godot/imported/beige-plaster-wall-texture-background-picture-id513444928.png-6aa19a86a46ddd5a6d8f113dc640826e.ctex"]
+source_file="res://AnimationFolder/comptoir.png"
+dest_files=["res://.godot/imported/comptoir.png-94609fe658f067eb5fc3c8232c1546de.ctex"]
 
 [params]
 

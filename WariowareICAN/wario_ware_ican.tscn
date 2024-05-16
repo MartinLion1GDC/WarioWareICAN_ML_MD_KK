@@ -1,9 +1,9 @@
 [gd_scene load_steps=87 format=3 uid="uid://cj7k4l16sbail"]
 
+[ext_resource type="Texture2D" uid="uid://dobk2ftd02mfu" path="res://AnimationFolder/décor principal.png" id="1_qfn7h"]
 [ext_resource type="Script" path="res://TransitionManager.gd" id="1_u5e1s"]
 [ext_resource type="FontFile" uid="uid://b6xy4o3njasux" path="res://ka1.ttf" id="2_gnbig"]
 [ext_resource type="Texture2D" uid="uid://bqoqkngeracfs" path="res://AnimationFolder/entrée.png" id="2_l252m"]
-[ext_resource type="Texture2D" uid="uid://bhxp3j0amn6mi" path="res://AnimationFolder/beige-plaster-wall-texture-background-picture-id513444928.png" id="3_78num"]
 [ext_resource type="Texture2D" uid="uid://duoocjdw0ub1h" path="res://AnimationFolder/loose-Sheet.png" id="3_inp21"]
 [ext_resource type="Texture2D" uid="uid://dlh5qb7dfhhvg" path="res://AnimationFolder/win-Sheet.png" id="4_f567k"]
 [ext_resource type="Texture2D" uid="uid://rx4um5oqtg6a" path="res://AnimationFolder/person-Sheet.png" id="5_rbrl8"]
@@ -655,6 +655,21 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0.9), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_wniab"]
+resource_name = "Disappear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(104.75, 479), Vector2(104.75, 758)]
+}
+
 [sub_resource type="Animation" id="Animation_4b10t"]
 length = 0.001
 tracks/0/type = "value"
@@ -680,21 +695,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_wniab"]
-resource_name = "Disappear"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(104.75, 479), Vector2(104.75, 758)]
 }
 
 [sub_resource type="Animation" id="Animation_qr3h3"]
@@ -832,21 +832,6 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0.9), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_2oqry"]
-resource_name = "disappear"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(347.75, 480), Vector2(347.75, 739)]
-}
-
 [sub_resource type="Animation" id="Animation_ashio"]
 length = 0.001
 tracks/0/type = "value"
@@ -874,6 +859,21 @@ tracks/1/keys = {
 "values": [Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_2oqry"]
+resource_name = "disappear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(347.75, 480), Vector2(347.75, 739)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3n1ki"]
 _data = {
 "Bopping": SubResource("Animation_c0i74"),
@@ -884,13 +884,13 @@ _data = {
 [node name="WarioWareICAN" type="Node2D"]
 position = Vector2(565.25, 4)
 
+[node name="DécorPrincipal" type="Sprite2D" parent="."]
+position = Vector2(30.75, 371)
+scale = Vector2(1.54102, 1.54102)
+texture = ExtResource("1_qfn7h")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8.75, 309)
-
-[node name="Beige-plaster-wall-texture-background-picture-id513444928" type="Sprite2D" parent="."]
-position = Vector2(2.75, 327)
-scale = Vector2(2.35116, 2.19838)
-texture = ExtResource("3_78num")
 
 [node name="TransitionManager" type="Node2D" parent="."]
 script = ExtResource("1_u5e1s")

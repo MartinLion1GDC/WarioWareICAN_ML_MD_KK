@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb4xohr6s44ji"
-path="res://.godot/imported/decord_pizzaiolo.png-72c4c6c9323a78da77a27c02286feefe.ctex"
+uid="uid://sbwqt4b11x1c"
+path="res://.godot/imported/décor.png-ca1522f824a64cabbf11ad80c5d2bdca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://AnimationFolder/decord_pizzaiolo.png"
-dest_files=["res://.godot/imported/decord_pizzaiolo.png-72c4c6c9323a78da77a27c02286feefe.ctex"]
+source_file="res://décor.png"
+dest_files=["res://.godot/imported/décor.png-ca1522f824a64cabbf11ad80c5d2bdca.ctex"]
 
 [params]
 
