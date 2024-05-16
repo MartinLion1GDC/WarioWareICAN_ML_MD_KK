@@ -1,16 +1,57 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnf61b1smsoyn"]
+[gd_scene load_steps=15 format=3 uid="uid://dnf61b1smsoyn"]
 
 [ext_resource type="Script" path="res://Jeux/facteur_jeu.gd" id="1_0uh8m"]
 [ext_resource type="Texture2D" uid="uid://bqkpmv40k3xau" path="res://AnimationFolder/FacteurAnims/facteur.png" id="2_41oxv"]
+[ext_resource type="Texture2D" uid="uid://2ms075qsef1x" path="res://AnimationFolder/FacteurAnims/pixel_art_WARIOWARE_3.png" id="2_jwdfp"]
 [ext_resource type="Texture2D" uid="uid://b5j6mwr2840ul" path="res://AnimationFolder/FacteurAnims/pressleft.png" id="3_o6jvg"]
 [ext_resource type="Texture2D" uid="uid://cxd3418glpm3h" path="res://AnimationFolder/FacteurAnims/pressright.png" id="4_n2wn5"]
 [ext_resource type="PackedScene" uid="uid://bqbac1ikd524p" path="res://texte.tscn" id="5_qupsy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p53td"]
+atlas = ExtResource("2_jwdfp")
+region = Rect2(0, 39, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvkd1"]
+atlas = ExtResource("2_jwdfp")
+region = Rect2(33, 39, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvvnf"]
+atlas = ExtResource("2_jwdfp")
+region = Rect2(66, 39, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqb6x"]
+atlas = ExtResource("2_jwdfp")
+region = Rect2(0, 0, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o03k"]
+atlas = ExtResource("2_jwdfp")
+region = Rect2(33, 0, 33, 39)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5xqym"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_p53td")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvkd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvvnf")
+}],
+"loop": true,
+"name": &"facteur",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_41oxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqb6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o03k")
 }],
 "loop": true,
 "name": &"idle",
@@ -31,15 +72,18 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_yd60v"]
+
 [node name="FacteurJeu" type="Node2D"]
 position = Vector2(0, 237)
 script = ExtResource("1_0uh8m")
 
 [node name="Facteuranims" type="AnimatedSprite2D" parent="."]
-position = Vector2(-90.6, 203.25)
-scale = Vector2(0.764, 0.764)
+position = Vector2(-27.303, 159.722)
+scale = Vector2(1.29109, 1.29109)
 sprite_frames = SubResource("SpriteFrames_5xqym")
-animation = &"idle"
+animation = &"facteur"
+frame_progress = 0.140074
 
 [node name="ArrowPressinganims" type="AnimatedSprite2D" parent="."]
 position = Vector2(271.4, 50.25)
@@ -56,6 +100,9 @@ wait_time = 3.0
 
 [node name="Label" parent="TexteStartNode" index="0"]
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yd60v")
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 
