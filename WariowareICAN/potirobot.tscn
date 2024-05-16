@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmleri2f3mtky"]
+
+[ext_resource type="Texture2D" uid="uid://bg778peeabi7h" path="res://addons/kenney pixel platformer/characters/character_0000.png" id="1_xyr7t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_egtj2"]
+
+[node name="potirobot" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_egtj2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xyr7t")

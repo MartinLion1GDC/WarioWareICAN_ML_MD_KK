@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnf61b1smsoyn"]
+
+[ext_resource type="Script" path="res://Jeux/facteur_jeu.gd" id="1_0uh8m"]
+[ext_resource type="Texture2D" uid="uid://bqkpmv40k3xau" path="res://AnimationFolder/FacteurAnims/facteur.png" id="2_41oxv"]
+[ext_resource type="Texture2D" uid="uid://b5j6mwr2840ul" path="res://AnimationFolder/FacteurAnims/pressleft.png" id="3_o6jvg"]
+[ext_resource type="Texture2D" uid="uid://cxd3418glpm3h" path="res://AnimationFolder/FacteurAnims/pressright.png" id="4_n2wn5"]
+[ext_resource type="PackedScene" uid="uid://bqbac1ikd524p" path="res://texte.tscn" id="5_qupsy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5xqym"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_41oxv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_junid"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("3_o6jvg")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_n2wn5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FacteurJeu" type="Node2D"]
+position = Vector2(0, 237)
+script = ExtResource("1_0uh8m")
+
+[node name="Facteuranims" type="AnimatedSprite2D" parent="."]
+position = Vector2(-90.6, 203.25)
+scale = Vector2(0.764, 0.764)
+sprite_frames = SubResource("SpriteFrames_5xqym")
+animation = &"idle"
+
+[node name="ArrowPressinganims" type="AnimatedSprite2D" parent="."]
+position = Vector2(271.4, 50.25)
+scale = Vector2(0.477, 0.477)
+sprite_frames = SubResource("SpriteFrames_junid")
+autoplay = "default"
+frame = 1
+frame_progress = 0.666605
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="TexteStartNode" parent="." instance=ExtResource("5_qupsy")]
+
+[node name="Label" parent="TexteStartNode" index="0"]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+
+[editable path="TexteStartNode"]

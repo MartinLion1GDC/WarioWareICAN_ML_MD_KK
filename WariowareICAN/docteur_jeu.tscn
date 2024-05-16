@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://lv8y5ifyq5vf"]
+
+[ext_resource type="Script" path="res://Docteur_jeu.gd" id="1_xw0u5"]
+[ext_resource type="Texture2D" uid="uid://cxppuc2hdspki" path="res://AnimationFolder/Docteur/background.png" id="2_ckrki"]
+[ext_resource type="PackedScene" uid="uid://1mktxtvfevip" path="res://targetDocteur.tscn" id="3_e2n2b"]
+
+[node name="Docteur_jeu" type="Node2D"]
+script = ExtResource("1_xw0u5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(596.3, 330.5)
+scale = Vector2(1.218, 1.218)
+texture = ExtResource("2_ckrki")
+
+[node name="areaArm1" type="ReferenceRect" parent="."]
+offset_left = 411.0
+offset_top = 220.0
+offset_right = 450.0
+offset_bottom = 432.0
+
+[node name="areaArm2" type="ReferenceRect" parent="."]
+offset_left = 735.0
+offset_top = 199.0
+offset_right = 775.0
+offset_bottom = 438.0
+
+[node name="area Body" type="ReferenceRect" parent="."]
+offset_left = 497.0
+offset_top = 160.0
+offset_right = 676.0
+offset_bottom = 440.0
+
+[node name="Target" parent="." instance=ExtResource("3_e2n2b")]
+
+[connection signal="mouse_entered" from="Target" to="." method="_on_target_mouse_entered"]

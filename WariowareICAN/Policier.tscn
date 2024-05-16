@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgrkr08vpsgeu"]
+
+[ext_resource type="Texture2D" uid="uid://c0ydukov2e4c8" path="res://AnimationFolder/PolicierAnims/policierFailed.png" id="1_3sw4e"]
+[ext_resource type="Texture2D" uid="uid://hinry56un436" path="res://AnimationFolder/PolicierAnims/policierNotWatching2.png" id="2_qyqro"]
+[ext_resource type="Texture2D" uid="uid://drpd4te3mst7w" path="res://AnimationFolder/PolicierAnims/policierNotWatching1.png" id="3_ibidw"]
+[ext_resource type="Texture2D" uid="uid://bum3siwt5ufqe" path="res://AnimationFolder/PolicierAnims/policierISWatching.png" id="4_k8yo3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lwhca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3sw4e")
+}],
+"loop": true,
+"name": &"PolicierFailed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qyqro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ibidw")
+}],
+"loop": true,
+"name": &"PolicierNotWatching",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_k8yo3")
+}],
+"loop": true,
+"name": &"PolicierWatchSucceed",
+"speed": 5.0
+}]
+
+[node name="PolicierAnimations" type="AnimatedSprite2D"]
+position = Vector2(379, 287)
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_lwhca")
+animation = &"PolicierNotWatching"
+autoplay = "PolicierNotWatching"

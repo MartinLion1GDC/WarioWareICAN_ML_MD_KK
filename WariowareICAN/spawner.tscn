@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj1ddiqtec07b"]
+
+[ext_resource type="Script" path="res://spawner.gd" id="1_odkdt"]
+
+[node name="Spawner" type="Node2D"]
+position = Vector2(155, 97)
+script = ExtResource("1_odkdt")

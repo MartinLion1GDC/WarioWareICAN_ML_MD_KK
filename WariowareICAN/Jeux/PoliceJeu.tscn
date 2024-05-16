@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://dd8wxif18c5t2"]
+
+[ext_resource type="Script" path="res://Jeux/PoliceJeu.gd" id="1_78lwp"]
+[ext_resource type="PackedScene" uid="uid://bgrkr08vpsgeu" path="res://Policier.tscn" id="1_fi10d"]
+[ext_resource type="Texture2D" uid="uid://d2e241c6fbi3j" path="res://AnimationFolder/PolicierAnims/abouttosteal.png" id="3_gfk3w"]
+[ext_resource type="Texture2D" uid="uid://cmt3tfjmc3fnv" path="res://AnimationFolder/PolicierAnims/StealingBusted.png" id="4_q20h0"]
+[ext_resource type="Texture2D" uid="uid://vhrb647y88i4" path="res://AnimationFolder/PolicierAnims/stolen.png" id="5_jvn1w"]
+[ext_resource type="Texture2D" uid="uid://dkiqbprkeynyq" path="res://AnimationFolder/PolicierAnims/stolen2.png" id="6_c6qbj"]
+[ext_resource type="Texture2D" uid="uid://nfyd3abcbku5" path="res://AnimationFolder/PolicierAnims/notStealing.png" id="7_n8p2t"]
+[ext_resource type="Texture2D" uid="uid://dwj45bwojr8u2" path="res://AnimationFolder/PolicierAnims/stealing.png" id="8_bwnrk"]
+[ext_resource type="PackedScene" uid="uid://bqbac1ikd524p" path="res://texte.tscn" id="9_rfc4r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e4pf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gfk3w")
+}],
+"loop": true,
+"name": &"AboutTosteal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_q20h0")
+}],
+"loop": true,
+"name": &"Busted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jvn1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_c6qbj")
+}],
+"loop": false,
+"name": &"GotAway",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_n8p2t")
+}],
+"loop": true,
+"name": &"NotStealing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_bwnrk")
+}],
+"loop": true,
+"name": &"STealing",
+"speed": 5.0
+}]
+
+[node name="PoliceJeu" type="Node2D"]
+position = Vector2(0, 8)
+script = ExtResource("1_78lwp")
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 6.0
+
+[node name="PolicierAnimations" parent="." instance=ExtResource("1_fi10d")]
+position = Vector2(-493.25, 429.333)
+scale = Vector2(0.671667, 0.671667)
+frame = 1
+frame_progress = 0.454481
+
+[node name="voleurAnimations" type="AnimatedSprite2D" parent="."]
+position = Vector2(-165.5, 201.75)
+scale = Vector2(0.455, 0.455)
+sprite_frames = SubResource("SpriteFrames_e4pf3")
+animation = &"GotAway"
+autoplay = "NotStealing"
+
+[node name="TexteStartNode" parent="." instance=ExtResource("9_rfc4r")]
+
+[node name="Label" parent="TexteStartNode" index="0"]
+offset_left = 210.0
+offset_top = 321.0
+offset_right = 911.0
+offset_bottom = 516.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Attrappe le la main
+ dans le sac"
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_timer_timeout"]
+
+[editable path="TexteStartNode"]

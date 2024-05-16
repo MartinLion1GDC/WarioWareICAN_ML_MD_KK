@@ -1,0 +1,211 @@
+[gd_scene load_steps=24 format=3 uid="uid://b2tlxvih1jqyf"]
+
+[ext_resource type="Script" path="res://Jeux/pizzayolocharacter.gd" id="1_feyxn"]
+[ext_resource type="Script" path="res://Jeux/pizza_yoloJeu.gd" id="1_nqa1h"]
+[ext_resource type="Texture2D" uid="uid://cb4xohr6s44ji" path="res://AnimationFolder/decord_pizzaiolo.png" id="2_rj1bn"]
+[ext_resource type="Texture2D" uid="uid://cx6l6ut07e0or" path="res://AnimationFolder/PizzaYolo/Pizzaiolo-Sheet.png" id="3_a8ymx"]
+[ext_resource type="Texture2D" uid="uid://cu7c2sf6vd5ae" path="res://AnimationFolder/PizzaYolo/Pizza-Sheet.png" id="4_jqn7e"]
+[ext_resource type="PackedScene" uid="uid://bqbac1ikd524p" path="res://texte.tscn" id="5_748ug"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt2bp"]
+atlas = ExtResource("3_a8ymx")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tblqu"]
+atlas = ExtResource("3_a8ymx")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4v1y5"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_kt2bp")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_tblqu")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_kt2bp")
+}],
+"loop": false,
+"name": &"ThrowingUp",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fugi3"]
+size = Vector2(135, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70314"]
+size = Vector2(188, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n7ljn"]
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_10mv5"]
+radius = 41.7852
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk6mr"]
+atlas = ExtResource("4_jqn7e")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oegd"]
+atlas = ExtResource("4_jqn7e")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exmbs"]
+atlas = ExtResource("4_jqn7e")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glxlh"]
+atlas = ExtResource("4_jqn7e")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tws60"]
+atlas = ExtResource("4_jqn7e")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mal5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk6mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oegd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exmbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glxlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tws60")
+}],
+"loop": true,
+"name": &"pizza!",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54xpv"]
+size = Vector2(80, 1719.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7te3e"]
+size = Vector2(1202, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ney6y"]
+size = Vector2(1089, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rmol"]
+size = Vector2(1241, 29)
+
+[node name="PizzaYolo" type="Node2D"]
+position = Vector2(547, -367)
+script = ExtResource("1_nqa1h")
+
+[node name="DecordPizzaiolo" type="Sprite2D" parent="."]
+position = Vector2(-530.743, 738)
+scale = Vector2(1.64425, 1.64425)
+texture = ExtResource("2_rj1bn")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-560.743, 735)
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_feyxn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(4, 3)
+scale = Vector2(9.91667, 9.91667)
+sprite_frames = SubResource("SpriteFrames_4v1y5")
+animation = &"ThrowingUp"
+frame = 2
+frame_progress = 1.0
+
+[node name="mains" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(-5, 140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/mains"]
+position = Vector2(-9.5, -9)
+shape = SubResource("RectangleShape2D_fugi3")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+wait_time = 7.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-13, 195)
+shape = SubResource("RectangleShape2D_70314")
+
+[node name="pateobjet" type="Node" parent="."]
+
+[node name="Pâte" type="RigidBody2D" parent="pateobjet"]
+position = Vector2(498, 194.061)
+collision_layer = 3
+physics_material_override = SubResource("PhysicsMaterial_n7ljn")
+angular_damp = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pateobjet/Pâte"]
+skew = 0.0174533
+shape = SubResource("CircleShape2D_10mv5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pateobjet/Pâte"]
+position = Vector2(3.00001, 16)
+scale = Vector2(5.4375, 3.61458)
+sprite_frames = SubResource("SpriteFrames_mal5u")
+animation = &"pizza!"
+autoplay = "pizza!"
+frame = 1
+frame_progress = 0.183738
+
+[node name="Wall1" type="StaticBody2D" parent="."]
+position = Vector2(-1058.74, 472)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
+position = Vector2(-26, -26.75)
+shape = SubResource("RectangleShape2D_54xpv")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(58.2574, 485)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(-20, -96.875)
+shape = SubResource("RectangleShape2D_54xpv")
+
+[node name="Groundy2D" type="StaticBody2D" parent="."]
+position = Vector2(-857.743, 954)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groundy2D"]
+position = Vector2(353, 0)
+shape = SubResource("RectangleShape2D_7te3e")
+
+[node name="LoseZone" type="Area2D" parent="."]
+position = Vector2(-891.743, 957)
+collision_layer = 3
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoseZone"]
+position = Vector2(358.5, 121)
+shape = SubResource("RectangleShape2D_ney6y")
+
+[node name="TexteStartNode" parent="." instance=ExtResource("5_748ug")]
+
+[node name="Label" parent="TexteStartNode" index="0"]
+offset_left = -14.0
+offset_top = 174.0
+offset_right = 419.0
+offset_bottom = 369.0
+text = "Ne la Laisse 
+pas Tomber"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-514, 1274)
+shape = SubResource("RectangleShape2D_6rmol")
+
+[connection signal="body_entered" from="CharacterBody2D/mains" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="CharacterBody2D/Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="LoseZone" to="CharacterBody2D" method="_on_lose_zone_body_entered"]
+
+[editable path="TexteStartNode"]
