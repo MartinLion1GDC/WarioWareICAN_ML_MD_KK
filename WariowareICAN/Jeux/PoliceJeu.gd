@@ -25,7 +25,6 @@ func _ready():
 	print(myrandomnumber)
 	animated_sprite.play("PolicierNotWatching")
 	voleur_animations.play("NotStealing")
-	$PolicierSuspicieux.play()
 	
 	_startGame()
 	pass
@@ -44,16 +43,21 @@ func _process(delta):
 	if time < myrandomnumber + 0.8 && time > myrandomnumber:
 		print("ChatIsAboutToSteal")
 		voleur_animations.play("AboutTosteal")
+		
 		pass
 	elif time < myrandomnumber && time > myrandomnumber - 1.2 :
 			if Gamewon == false :			
 				voleur_animations.play("STealing")
+				
 				$GrandmaLose.play()
+				
 			if Input.is_action_just_pressed("PolicierTurnAround") :
 				animated_sprite.play("PolicierWatchSucceed")
 				voleur_animations.play("Busted")
 				print("you Turned around in time")
+				
 				$GrandmaWin.play()
+				
 				Gamewon = true
 	elif time < myrandomnumber - 1.2 && Gamewon == false :
 		
