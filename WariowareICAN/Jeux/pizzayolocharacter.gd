@@ -48,6 +48,7 @@ func _on_area_2d_body_entered(body : RigidBody2D):
 	var tween = create_tween()
 	
 	pizzayoloanim.play("ThrowingUp")
+	$boingPizza.play()
 	
 	throws += 1
 	print(throws)

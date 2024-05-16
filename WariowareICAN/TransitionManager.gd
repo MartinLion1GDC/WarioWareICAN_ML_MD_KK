@@ -46,6 +46,8 @@ func _changelevel():
 	monchild.levellost.connect(_waslevellost)
 
 func _waslevelwon() :
+	$win_minijeu.play()
+	
 	timer.start()
 	transition_animation_player.play("dezoomin")
 	var tween = create_tween()
@@ -63,6 +65,8 @@ func _waslevellost():
 	
 	anim.play("disappear")
 	
+	$lose_minijeu.play()
+	
 	timer.start()
 	transition_animation_player.play("dezoomin")
 	var tween = create_tween()
@@ -78,6 +82,7 @@ func _waslevellost():
 
 
 func _on_timer_timeout():	
+	$introNewMicroGame.play()
 	transition_animation_player.play("zoomIn")
 	
 	

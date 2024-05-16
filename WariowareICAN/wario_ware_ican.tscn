@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://cj7k4l16sbail"]
+[gd_scene load_steps=92 format=3 uid="uid://cj7k4l16sbail"]
 
 [ext_resource type="Texture2D" uid="uid://dobk2ftd02mfu" path="res://AnimationFolder/décor principal.png" id="1_qfn7h"]
 [ext_resource type="Script" path="res://TransitionManager.gd" id="1_u5e1s"]
@@ -7,6 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://duoocjdw0ub1h" path="res://AnimationFolder/loose-Sheet.png" id="3_inp21"]
 [ext_resource type="Texture2D" uid="uid://dlh5qb7dfhhvg" path="res://AnimationFolder/win-Sheet.png" id="4_f567k"]
 [ext_resource type="Texture2D" uid="uid://rx4um5oqtg6a" path="res://AnimationFolder/person-Sheet.png" id="5_rbrl8"]
+[ext_resource type="AudioStream" uid="uid://l788l5rhmdp6" path="res://sounds/foule decue - courbe rouge (transition).mp3" id="8_7ffxn"]
+[ext_resource type="AudioStream" uid="uid://brrrynfe2an78" path="res://sounds/YAY ! - courbe verte (transition).wav" id="9_k3t7t"]
+[ext_resource type="AudioStream" uid="uid://o70fv8bdpp2y" path="res://sounds/win micro game.wav" id="10_uk740"]
+[ext_resource type="AudioStream" uid="uid://bi3nw5bmvt2lf" path="res://sounds/lose micro game.wav" id="11_ovl6n"]
+[ext_resource type="AudioStream" uid="uid://cxydrcf3w86s" path="res://sounds/intro new microgame.wav" id="12_o2iae"]
 
 [sub_resource type="Animation" id="Animation_pc2sw"]
 resource_name = "Normal"
@@ -894,6 +899,21 @@ position = Vector2(8.75, 309)
 
 [node name="TransitionManager" type="Node2D" parent="."]
 script = ExtResource("1_u5e1s")
+
+[node name="ohh___ courbe rouge" type="AudioStreamPlayer" parent="TransitionManager"]
+stream = ExtResource("8_7ffxn")
+
+[node name="yay ! courbe verte" type="AudioStreamPlayer" parent="TransitionManager"]
+stream = ExtResource("9_k3t7t")
+
+[node name="win_minijeu" type="AudioStreamPlayer" parent="TransitionManager"]
+stream = ExtResource("10_uk740")
+
+[node name="introNewMicroGame" type="AudioStreamPlayer" parent="TransitionManager"]
+stream = ExtResource("12_o2iae")
+
+[node name="lose_minijeu" type="AudioStreamPlayer" parent="TransitionManager"]
+stream = ExtResource("11_ovl6n")
 
 [node name="Node2D" type="Node2D" parent="TransitionManager"]
 

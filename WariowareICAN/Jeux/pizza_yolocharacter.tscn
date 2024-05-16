@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b2tlxvih1jqyf"]
+[gd_scene load_steps=51 format=3 uid="uid://b2tlxvih1jqyf"]
 
 [ext_resource type="Script" path="res://Jeux/pizzayolocharacter.gd" id="1_feyxn"]
 [ext_resource type="Script" path="res://Jeux/pizza_yoloJeu.gd" id="1_nqa1h"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dctrnuwn3ve23" path="res://AnimationFolder/PizzaYolo/LETTRE Q-Sheet.png" id="7_d7mu1"]
 [ext_resource type="Texture2D" uid="uid://c4wdw7ktr1h1n" path="res://AnimationFolder/PizzaYolo/LETTRE D-Sheet.png" id="8_kwn7p"]
 [ext_resource type="Texture2D" uid="uid://ddoi2rwijgbcu" path="res://AnimationFolder/comptoir.png" id="9_2l8m7"]
+[ext_resource type="AudioStream" uid="uid://bpbgfiol8hsqs" path="res://sounds/mama mia - defaite piza.wav" id="10_wxkhv"]
+[ext_resource type="AudioStream" uid="uid://d1fe1cllvg7v5" path="res://sounds/musique pizaiolo.wav" id="11_7878c"]
+[ext_resource type="AudioStream" uid="uid://cf63rpqblgbpg" path="res://sounds/bravo - victoire pizzailo.wav" id="12_p0yp0"]
+[ext_resource type="AudioStream" uid="uid://cbilruhpxt7gi" path="res://sounds/boing pizza.wav" id="13_dohgd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kt2bp"]
 atlas = ExtResource("3_a8ymx")
@@ -248,6 +252,15 @@ animations = [{
 position = Vector2(547, -367)
 script = ExtResource("1_nqa1h")
 
+[node name="mama_mia" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_wxkhv")
+
+[node name="Musique" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_7878c")
+
+[node name="Bravo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_p0yp0")
+
 [node name="Décor" type="Sprite2D" parent="."]
 position = Vector2(-516, 613)
 scale = Vector2(1.59229, 1.59229)
@@ -258,6 +271,9 @@ position = Vector2(-560.743, 735)
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_feyxn")
+
+[node name="boingPizza" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("13_dohgd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(4, 3)

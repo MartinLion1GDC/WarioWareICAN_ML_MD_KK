@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dd8wxif18c5t2"]
+[gd_scene load_steps=14 format=3 uid="uid://dd8wxif18c5t2"]
 
 [ext_resource type="Script" path="res://Jeux/PoliceJeu.gd" id="1_78lwp"]
 [ext_resource type="PackedScene" uid="uid://bgrkr08vpsgeu" path="res://Policier.tscn" id="1_fi10d"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://nfyd3abcbku5" path="res://AnimationFolder/PolicierAnims/notStealing.png" id="7_n8p2t"]
 [ext_resource type="Texture2D" uid="uid://dwj45bwojr8u2" path="res://AnimationFolder/PolicierAnims/stealing.png" id="8_bwnrk"]
 [ext_resource type="PackedScene" uid="uid://bqbac1ikd524p" path="res://texte.tscn" id="9_rfc4r"]
+[ext_resource type="AudioStream" uid="uid://mgpd0ccgj1g7" path="res://sounds/dog hhmmm  - jeu policier.wav" id="10_o7k1k"]
+[ext_resource type="AudioStream" uid="uid://dm772gjyiob6u" path="res://sounds/grandma scream - lose policier.wav" id="11_5yq8v"]
+[ext_resource type="AudioStream" uid="uid://dce8ekbpa6ny4" path="res://sounds/grandma laugh - win policier.wav" id="12_w3ggx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e4pf3"]
 animations = [{
@@ -59,6 +62,15 @@ animations = [{
 [node name="PoliceJeu" type="Node2D"]
 position = Vector2(0, 8)
 script = ExtResource("1_78lwp")
+
+[node name="PolicierSuspicieux" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_o7k1k")
+
+[node name="GrandmaLose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_5yq8v")
+
+[node name="GrandmaWin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_w3ggx")
 
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 6.0

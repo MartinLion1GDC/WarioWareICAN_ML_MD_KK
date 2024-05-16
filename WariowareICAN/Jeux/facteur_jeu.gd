@@ -13,6 +13,7 @@ var droite : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$DogBark.play()
 	timer.start()
 	pass # Replace with function body.
 
@@ -40,6 +41,7 @@ func _on_game_timer_timeout():
 	if Gamewon == true :
 		levelwon.emit()
 	else :
+		$cuteDog.play()
 		levellost.emit()
 	timer.stop()
 	pass # Replace with function body.
