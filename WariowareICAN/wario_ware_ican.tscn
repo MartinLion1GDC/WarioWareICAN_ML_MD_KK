@@ -1061,4 +1061,6 @@ libraries = {
 }
 autoplay = "Bopping"
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TransitionManager/Node2D/Person4/AnimationPlayer"]
+
 [connection signal="timeout" from="TransitionManager/Node2D/Timer" to="TransitionManager" method="_on_timer_timeout"]
