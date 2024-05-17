@@ -10,6 +10,7 @@ var throws : float
 
 @onready var pizzayoloanim = $AnimatedSprite2D
 
+@onready var pate = $"../pateobjet/Pâte"
 
 @onready var area_2d = $Area2D
 @onready var timer = $Timer
@@ -29,7 +30,9 @@ func _physics_process(delta):
 		velocity.y += gravity * delta	
 		
 	if throws > 4 :
+		pate.queue_free()
 		pizzagud.emit()
+		set_physics_process(false)
 		
 	
 	var direction = Input.get_axis("pressleft", "pressright")

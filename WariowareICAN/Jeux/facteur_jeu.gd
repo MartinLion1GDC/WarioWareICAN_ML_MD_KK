@@ -2,11 +2,16 @@ extends Node2D
 
 @onready var timer = $GameTimer
 
+@onready var Dog_anim = $Iench/Dog_anm
+@onready var angry_d_og_anim = $Iench/angryDOgAnim
+
 signal levelwon 
 signal levellost
 
 var isgameplaying : bool = true
 var Gamewon : bool = false
+
+
 
 var pédalage : int = 0
 var droite : bool = true
@@ -35,6 +40,17 @@ func _process(delta):
 		
 	if  pédalage > 15 :
 		Gamewon = true;
+		
+	if timer.time_left < 0.5 && Gamewon == false && isgameplaying == true:
+		print("loseanim")
+		Dog_anim.play("Jumpthemailman")
+		isgameplaying = false
+	elif timer.time_left < 0.5 && Gamewon == true && isgameplaying == true:
+		print("winanim")
+		angry_d_og_anim.play("cute puppy")
+		isgameplaying = false
+
+
 
 func _on_game_timer_timeout():
 	print("time out")

@@ -58,7 +58,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fugi3"]
-size = Vector2(135, 2)
+size = Vector2(191, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_70314"]
 size = Vector2(188, 20)
@@ -272,7 +272,7 @@ animations = [{
 }]
 
 [node name="PizzaYolo" type="Node2D"]
-position = Vector2(547, -367)
+position = Vector2(553, -367)
 script = ExtResource("1_nqa1h")
 
 [node name="mama_mia" type="AudioStreamPlayer" parent="."]
@@ -310,7 +310,7 @@ animation = &"ThrowingUp"
 position = Vector2(-5, 140)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/mains"]
-position = Vector2(-9.5, -9)
+position = Vector2(0.242981, -8)
 shape = SubResource("RectangleShape2D_fugi3")
 
 [node name="Timer" type="Timer" parent="CharacterBody2D"]

@@ -42,6 +42,7 @@ func _changelevel():
 	scoreLabel.visible = false
 	win_lose_animation.play("Entrée")
 	randomnumber = rng.randi_range(0,2)
+	randomnumber = 1
 	var microgame : String = Micro[randomnumber]
 	var game : = load(microgame)
 	monchild = game.instantiate()
