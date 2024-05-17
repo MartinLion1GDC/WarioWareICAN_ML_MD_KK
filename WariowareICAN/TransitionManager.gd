@@ -88,7 +88,14 @@ func _waslevellost():
 
 
 func _on_timer_timeout():	
-	$introNewMicroGame.play()
-	transition_animation_player.play("zoomIn")
+	if lives < 0 : 
+		Game_over()
+		
+	else :
+		$introNewMicroGame.play()
+		transition_animation_player.play("zoomIn")	
 	
 	
+func Game_over():
+	print("Gameover")
+	pass

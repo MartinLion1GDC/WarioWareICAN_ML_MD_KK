@@ -1,9 +1,9 @@
 extends Node2D
 
 @onready var timer = $GameTimer
-@onready var animated_sprite = $PolicierAnimations
+@onready var animated_sprite = $Policier/PolicierAnimations
 
-@onready var voleur_animations = $voleurAnimations
+@onready var voleur_animations = $Voleur/voleurAnimations
 
 @onready var voleur_s_ong = $voleurSOng
 

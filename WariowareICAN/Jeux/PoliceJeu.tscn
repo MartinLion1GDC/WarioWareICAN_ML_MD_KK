@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dd8wxif18c5t2"]
+[gd_scene load_steps=60 format=3 uid="uid://dd8wxif18c5t2"]
 
 [ext_resource type="Script" path="res://Jeux/PoliceJeu.gd" id="1_78lwp"]
 [ext_resource type="PackedScene" uid="uid://bgrkr08vpsgeu" path="res://Policier.tscn" id="1_fi10d"]
@@ -9,6 +9,68 @@
 [ext_resource type="Texture2D" uid="uid://db0benca86l42" path="res://AnimationFolder/PolicierAnims/LETTRE_Z-Sheet.png" id="9_wooi6"]
 [ext_resource type="AudioStream" uid="uid://mgpd0ccgj1g7" path="res://sounds/dog hhmmm  - jeu policier.wav" id="10_o7k1k"]
 [ext_resource type="AudioStream" uid="uid://dm772gjyiob6u" path="res://sounds/grandma scream - lose policier.wav" id="11_5yq8v"]
+
+[sub_resource type="Animation" id="Animation_to5bl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(188, 192)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.05809, 2.05809)]
+}
+
+[sub_resource type="Animation" id="Animation_8j1px"]
+resource_name = "bopping"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(188, 192), Vector2(188, 192), Vector2(188, 216), Vector2(188, 192)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.05809, 2.05809), Vector2(2.05809, 2.05809), Vector2(2.058, 1.943), Vector2(2.05809, 2.05809)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sna4u"]
+_data = {
+"RESET": SubResource("Animation_to5bl"),
+"bopping": SubResource("Animation_8j1px")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6klrd"]
 atlas = ExtResource("7_sp6qh")
@@ -566,6 +628,68 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="Animation" id="Animation_idrq5"]
+resource_name = "Bopping"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 9), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0.97), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vtuol"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ercc"]
+_data = {
+"Bopping": SubResource("Animation_idrq5"),
+"RESET": SubResource("Animation_vtuol")
+}
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_etp8u"]
 atlas = ExtResource("9_wooi6")
 region = Rect2(0, 0, 48, 48)
@@ -626,8 +750,8 @@ position = Vector2(0, 8)
 script = ExtResource("1_78lwp")
 
 [node name="Décor" type="Sprite2D" parent="."]
-position = Vector2(-39.1233, 327)
-scale = Vector2(1.12329, 1.12329)
+position = Vector2(5.78861, 304.5)
+scale = Vector2(1.21135, 1.21135)
 texture = ExtResource("2_gabr8")
 
 [node name="voleurSOng" type="AudioStreamPlayer" parent="."]
@@ -646,27 +770,45 @@ stream = ExtResource("5_rwd4o")
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 6.0
 
-[node name="PolicierAnimations" parent="." instance=ExtResource("1_fi10d")]
-position = Vector2(-235.122, 465.663)
-scale = Vector2(1.98172, 1.98172)
+[node name="Policier" type="Node2D" parent="."]
+position = Vector2(188, 192)
+scale = Vector2(2.05809, 2.05809)
+
+[node name="PolicierAnimations" parent="Policier" instance=ExtResource("1_fi10d")]
+position = Vector2(-183.186, 126.449)
+scale = Vector2(1.02357, 1.02357)
 frame = 1
 frame_progress = 0.454481
 
-[node name="voleurAnimations" type="AnimatedSprite2D" parent="."]
-position = Vector2(188, 192)
-scale = Vector2(2.05809, 2.05809)
+[node name="Plicerplayer" type="AnimationPlayer" parent="Policier"]
+libraries = {
+"": SubResource("AnimationLibrary_sna4u")
+}
+autoplay = "bopping"
+
+[node name="Voleur" type="Node2D" parent="."]
+
+[node name="voleurAnimations" type="AnimatedSprite2D" parent="Voleur"]
+position = Vector2(249, 163)
+scale = Vector2(2.21654, 2.21654)
 sprite_frames = SubResource("SpriteFrames_e4pf3")
-animation = &"Tooearly"
+animation = &"AboutTosteal"
 autoplay = "NotStealing"
+
+[node name="voleurplayer" type="AnimationPlayer" parent="Voleur"]
+libraries = {
+"": SubResource("AnimationLibrary_3ercc")
+}
+autoplay = "Bopping"
 
 [node name="TexteStartNode" parent="." instance=ExtResource("9_rfc4r")]
 
 [node name="Label" parent="TexteStartNode" index="0"]
-offset_left = 210.0
-offset_top = 321.0
-offset_right = 911.0
-offset_bottom = 516.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = -557.0
+offset_top = 37.0
+offset_right = 144.0
+offset_bottom = 232.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Attrappe le la main
  dans le sac"
 

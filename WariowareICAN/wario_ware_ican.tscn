@@ -402,6 +402,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_uxg7q"]
 resource_name = "disappear"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -409,10 +410,22 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 0.7, 0.9, 1, 1.1, 1.2, 1.4, 1.5, 1.7, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-381.25, 464), Vector2(-381.25, 856.75)]
+"values": [Vector2(-381.25, 464), Vector2(-380.25, 491), Vector2(-380.25, 517), Vector2(-380.25, 517), Vector2(-413.25, 507), Vector2(-456.25, 511), Vector2(-480.25, 521), Vector2(-518.25, 506), Vector2(-564.25, 517), Vector2(-597.25, 503), Vector2(-624.25, 513), Vector2(-681.25, 497), Vector2(-931.25, 516)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(10, 10), Vector2(10, 9), Vector2(10, 7.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6mvwl"]
@@ -549,6 +562,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_8d1m3"]
 resource_name = "disappear"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -556,10 +570,22 @@ tracks/0/path = NodePath("..:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 1.1, 1.3, 1.5, 1.7, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-157.25, 476), Vector2(-157.25, 734)]
+"values": [Vector2(-157.25, 476), Vector2(-157.25, 495), Vector2(-157.25, 522), Vector2(-196.25, 508), Vector2(-236.25, 526), Vector2(-289.25, 513), Vector2(-313.25, 524), Vector2(-392.25, 511), Vector2(-440.25, 519), Vector2(-544.25, 504), Vector2(-652.25, 514)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.9), Vector2(1, 0.75)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mgbqs"]
@@ -662,6 +688,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_wniab"]
 resource_name = "Disappear"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -669,10 +696,22 @@ tracks/0/path = NodePath("..:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(104.75, 479), Vector2(104.75, 758)]
+"values": [Vector2(104.75, 479), Vector2(104.75, 496), Vector2(104.75, 527), Vector2(104.75, 527), Vector2(164.75, 514), Vector2(241.75, 531), Vector2(368.75, 507), Vector2(461.75, 522), Vector2(560.75, 505), Vector2(616.75, 521), Vector2(779.75, 496)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.9), Vector2(1, 0.75), Vector2(1, 0.75)]
 }
 
 [sub_resource type="Animation" id="Animation_4b10t"]
@@ -866,6 +905,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2oqry"]
 resource_name = "disappear"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -873,10 +913,22 @@ tracks/0/path = NodePath("..:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.3, 1.5, 1.7, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(347.75, 480), Vector2(347.75, 739)]
+"values": [Vector2(347.75, 480), Vector2(347.75, 497), Vector2(347.75, 526), Vector2(347.75, 526), Vector2(392.75, 514), Vector2(437.75, 532), Vector2(475.75, 515), Vector2(499.75, 523), Vector2(545.75, 504), Vector2(580.75, 523), Vector2(647.75, 498), Vector2(764.75, 525)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.9), Vector2(1, 0.75), Vector2(1, 0.75)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3n1ki"]
