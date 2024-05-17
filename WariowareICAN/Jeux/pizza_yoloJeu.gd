@@ -29,6 +29,7 @@ func _process(delta):
 func _pizzaonfloor():
 	pizzayoloanim.play("tristess")
 	Gamewon = false
+	$mama_mia.play()
 	pass
 
 func _pizzagood():
@@ -44,7 +45,7 @@ func _on_timer_timeout():
 		$Bravo.play()
 		levelwon.emit()
 	else :
-		$mama_mia.play()
+		
 		levellost.emit()
 	timer.stop()
 	pass # Replace with function body.

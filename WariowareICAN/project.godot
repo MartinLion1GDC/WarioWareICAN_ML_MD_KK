@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="WariowareICAN"
-run/main_scene="res://sample.tscn"
+run/main_scene="res://wario_ware_ican.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/mode=3
+window/stretch/mode="canvas_items"
 
 [input]
 

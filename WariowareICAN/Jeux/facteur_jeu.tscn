@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dnf61b1smsoyn"]
+[gd_scene load_steps=57 format=3 uid="uid://dnf61b1smsoyn"]
 
 [ext_resource type="Script" path="res://Jeux/facteur_jeu.gd" id="1_0uh8m"]
 [ext_resource type="Texture2D" uid="uid://2ms075qsef1x" path="res://AnimationFolder/FacteurAnims/pixel_art_WARIOWARE_3.png" id="2_jwdfp"]
@@ -6,11 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://cnp1qbx4vjwhc" path="res://AnimationFolder/FacteurAnims/dogs angry bon.png" id="3_0memv"]
 [ext_resource type="Texture2D" uid="uid://b5j6mwr2840ul" path="res://AnimationFolder/FacteurAnims/pressleft.png" id="3_o6jvg"]
 [ext_resource type="Texture2D" uid="uid://cxd3418glpm3h" path="res://AnimationFolder/FacteurAnims/pressright.png" id="4_n2wn5"]
+[ext_resource type="AudioStream" uid="uid://tcp8qjep4t58" path="res://sounds/Facteurmusiquemieux.wav" id="4_oe4rj"]
 [ext_resource type="PackedScene" uid="uid://bqbac1ikd524p" path="res://texte.tscn" id="5_qupsy"]
 [ext_resource type="Texture2D" uid="uid://cti06hlj1y2gl" path="res://AnimationFolder/FacteurAnims/LETTRE_Q-Sheet.png" id="7_urvsr"]
 [ext_resource type="Texture2D" uid="uid://djlkxhblh2oqn" path="res://AnimationFolder/FacteurAnims/LETTRE_D-Sheet.png" id="8_pvrgj"]
 [ext_resource type="AudioStream" uid="uid://bruu8pspcy4fy" path="res://sounds/cute dog - win facteur.wav" id="10_0hwb1"]
 [ext_resource type="AudioStream" uid="uid://ct81ymp3ljpl6" path="res://sounds/dog bark - facteur.wav" id="11_llyxl"]
+[ext_resource type="Texture2D" uid="uid://b6d5l43jo73nk" path="res://AnimationFolder/FacteurAnims/Sprite-0001arrowst.png" id="12_7qo7n"]
 
 [sub_resource type="Animation" id="Animation_y06ve"]
 length = 3.0
@@ -307,14 +309,6 @@ region = Rect2(96, 0, 48, 48)
 atlas = ExtResource("7_urvsr")
 region = Rect2(144, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v8jin"]
-atlas = ExtResource("7_urvsr")
-region = Rect2(240, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_34o61"]
-atlas = ExtResource("7_urvsr")
-region = Rect2(192, 0, 48, 48)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_mq31g"]
 animations = [{
 "frames": [{
@@ -341,14 +335,8 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_68iwl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v8jin")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_34o61")
 }],
-"loop": false,
+"loop": true,
 "name": &"Qtouche",
 "speed": 3.0
 }]
@@ -368,14 +356,6 @@ region = Rect2(96, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_87r0o"]
 atlas = ExtResource("8_pvrgj")
 region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m2n8g"]
-atlas = ExtResource("8_pvrgj")
-region = Rect2(240, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yerp3"]
-atlas = ExtResource("8_pvrgj")
-region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgtxo"]
 animations = [{
@@ -403,16 +383,60 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_87r0o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m2n8g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yerp3")
 }],
-"loop": false,
+"loop": true,
 "name": &"DTouch",
 "speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvqhi"]
+atlas = ExtResource("12_7qo7n")
+region = Rect2(2, 0, 127, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2blsx"]
+atlas = ExtResource("12_7qo7n")
+region = Rect2(129, 0, 127, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44pp2"]
+atlas = ExtResource("12_7qo7n")
+region = Rect2(256, 0, 127, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxcr4"]
+atlas = ExtResource("12_7qo7n")
+region = Rect2(2, 64, 127, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqqpp"]
+atlas = ExtResource("12_7qo7n")
+region = Rect2(129, 64, 127, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gtds"]
+atlas = ExtResource("12_7qo7n")
+region = Rect2(256, 64, 127, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0y1ly"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvqhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2blsx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44pp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxcr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqqpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gtds")
+}],
+"loop": true,
+"name": &"fleches",
+"speed": 12.0
 }]
 
 [node name="FacteurJeu" type="Node2D"]
@@ -421,13 +445,17 @@ script = ExtResource("1_0uh8m")
 
 [node name="cuteDog" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_0hwb1")
+volume_db = 4.923
 
 [node name="DogBark" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_llyxl")
 
+[node name="MusicFacteur" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oe4rj")
+
 [node name="BackgroundLongFacteur" type="Sprite2D" parent="."]
 position = Vector2(-855, 60.7499)
-scale = Vector2(0.635565, 0.542129)
+scale = Vector2(0.78569, 0.542129)
 texture = ExtResource("2_u6rwb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BackgroundLongFacteur"]
@@ -476,7 +504,7 @@ libraries = {
 autoplay = "gettingcloser"
 
 [node name="ArrowPressinganims" type="AnimatedSprite2D" parent="."]
-position = Vector2(271.4, -387)
+position = Vector2(-747, -1661)
 scale = Vector2(0.477, 0.477)
 sprite_frames = SubResource("SpriteFrames_junid")
 autoplay = "default"
@@ -487,7 +515,7 @@ frame_progress = 0.666605
 wait_time = 3.5
 
 [node name="ToucheQAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(18, -139)
+position = Vector2(-371.727, -139)
 scale = Vector2(3.42803, 3.42803)
 sprite_frames = SubResource("SpriteFrames_mq31g")
 animation = &"Qtouche"
@@ -495,20 +523,28 @@ autoplay = "Qtouche"
 frame_progress = 0.554538
 
 [node name="ToucheDAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(166, -144)
+position = Vector2(-223.727, -144)
 scale = Vector2(3.53125, 3.53125)
 sprite_frames = SubResource("SpriteFrames_mgtxo")
 animation = &"DTouch"
 autoplay = "DTouch"
 frame_progress = 0.193508
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-295, -209.5)
+scale = Vector2(1.73228, 1.89063)
+sprite_frames = SubResource("SpriteFrames_0y1ly")
+animation = &"fleches"
+autoplay = "fleches"
+frame_progress = 0.167602
+
 [node name="TexteStartNode" parent="." instance=ExtResource("5_qupsy")]
 
 [node name="Label" parent="TexteStartNode" index="0"]
-offset_left = 224.0
-offset_top = -141.0
-offset_right = 564.0
-offset_bottom = 54.0
+offset_left = -66.26
+offset_top = 156.0
+offset_right = 409.74
+offset_bottom = 351.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Fuis le Chien!"
 

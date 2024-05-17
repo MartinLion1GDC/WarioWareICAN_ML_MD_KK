@@ -277,6 +277,7 @@ script = ExtResource("1_nqa1h")
 
 [node name="mama_mia" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_wxkhv")
+volume_db = 6.154
 
 [node name="Musique" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_xx7pw")
@@ -284,9 +285,10 @@ volume_db = -19.98
 
 [node name="Bravo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_p0yp0")
+volume_db = 6.769
 
 [node name="Décor" type="Sprite2D" parent="."]
-position = Vector2(-516, 613)
+position = Vector2(-514, 651)
 scale = Vector2(1.59229, 1.59229)
 texture = ExtResource("3_oxuyq")
 
@@ -323,7 +325,7 @@ shape = SubResource("RectangleShape2D_70314")
 [node name="pateobjet" type="Node" parent="."]
 
 [node name="Pâte" type="RigidBody2D" parent="pateobjet"]
-position = Vector2(498, 194.061)
+position = Vector2(494, 100)
 collision_layer = 3
 physics_material_override = SubResource("PhysicsMaterial_n7ljn")
 angular_damp = 100.0
@@ -376,9 +378,9 @@ shape = SubResource("RectangleShape2D_ney6y")
 
 [node name="Label" parent="TexteStartNode" index="0"]
 offset_left = -930.0
-offset_top = 252.0
+offset_top = 450.0
 offset_right = -78.0
-offset_bottom = 447.0
+offset_bottom = 645.0
 text = "Ne la Laisse pas Tomber"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

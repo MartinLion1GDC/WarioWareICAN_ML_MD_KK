@@ -10,7 +10,7 @@ var rng = RandomNumberGenerator.new()
 
 @onready var win_lose_animation = $Node2D/WinLoseAnimation
 
-@onready var game_over_anim = $GameOverScreen/GameOverAnim
+@onready var game_over_anim = $Node2D/GameOverScreen/GameOverAnim
 
 var Micro : Array = ["res://Jeux/facteur_jeu.tscn","res://Jeux/pizza_yolocharacter.tscn","res://Jeux/PoliceJeu.tscn"]
 
@@ -52,7 +52,8 @@ func _changelevel():
 
 func _waslevelwon() :
 	$win_minijeu.play()
-	
+	$yay_.play()
+	$Music.play()
 	timer.start()
 	transition_animation_player.play("dezoomin")
 	win_lose_animation.play("WinAnim")
@@ -72,7 +73,9 @@ func _waslevellost():
 	anim.play("disappear")
 	win_lose_animation.play("LoseAnim")
 	$lose_minijeu.play()
+	$ohh__.play()
 	
+	$Music.play()
 	timer.start()
 	transition_animation_player.play("dezoomin")
 	var tween = create_tween()
@@ -93,10 +96,12 @@ func _on_timer_timeout():
 		
 	else :
 		$introNewMicroGame.play()
+		Engine.time_scale += 0.05
 		transition_animation_player.play("zoomIn")	
 	
 	
 func Game_over():
 	game_over_anim.play("GameOverGo")
+	$GameOver.play()
 	print("Gameover")
 	pass

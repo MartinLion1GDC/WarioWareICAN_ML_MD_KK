@@ -400,19 +400,19 @@ animations = [{
 "speed": 7.0
 }, {
 "frames": [{
-"duration": 0.8,
+"duration": 0.6,
 "texture": SubResource("AtlasTexture_gtkmy")
 }, {
-"duration": 0.8,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_8th4h")
 }, {
-"duration": 0.8,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_o15ms")
 }, {
-"duration": 0.8,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_hdfrc")
 }, {
-"duration": 0.8,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_5cx78")
 }, {
 "duration": 1.0,
@@ -795,8 +795,10 @@ autoplay = "bopping"
 position = Vector2(249, 163)
 scale = Vector2(2.21654, 2.21654)
 sprite_frames = SubResource("SpriteFrames_e4pf3")
-animation = &"AboutTosteal"
+animation = &"STealing"
 autoplay = "NotStealing"
+frame = 18
+frame_progress = 0.592766
 
 [node name="voleurplayer" type="AnimationPlayer" parent="Voleur"]
 libraries = {

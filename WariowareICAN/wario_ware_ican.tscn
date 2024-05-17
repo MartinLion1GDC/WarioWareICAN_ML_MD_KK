@@ -1,18 +1,21 @@
-[gd_scene load_steps=96 format=3 uid="uid://cj7k4l16sbail"]
+[gd_scene load_steps=102 format=3 uid="uid://cj7k4l16sbail"]
 
 [ext_resource type="Texture2D" uid="uid://dobk2ftd02mfu" path="res://AnimationFolder/décor principal.png" id="1_qfn7h"]
 [ext_resource type="Script" path="res://TransitionManager.gd" id="1_u5e1s"]
 [ext_resource type="FontFile" uid="uid://b6xy4o3njasux" path="res://ka1.ttf" id="2_gnbig"]
 [ext_resource type="Texture2D" uid="uid://bqoqkngeracfs" path="res://AnimationFolder/entrée.png" id="2_l252m"]
 [ext_resource type="Texture2D" uid="uid://duoocjdw0ub1h" path="res://AnimationFolder/loose-Sheet.png" id="3_inp21"]
+[ext_resource type="AudioStream" uid="uid://ngdhjrea1cof" path="res://sounds/SonTransition2 (1).wav" id="4_4bonf"]
 [ext_resource type="Texture2D" uid="uid://dlh5qb7dfhhvg" path="res://AnimationFolder/win-Sheet.png" id="4_f567k"]
 [ext_resource type="Texture2D" uid="uid://rx4um5oqtg6a" path="res://AnimationFolder/person-Sheet.png" id="5_rbrl8"]
 [ext_resource type="AudioStream" uid="uid://l788l5rhmdp6" path="res://sounds/foule decue - courbe rouge (transition).mp3" id="8_7ffxn"]
 [ext_resource type="AudioStream" uid="uid://brrrynfe2an78" path="res://sounds/YAY ! - courbe verte (transition).wav" id="9_k3t7t"]
+[ext_resource type="AudioStream" uid="uid://mpy5lxah2ims" path="res://sounds/GameoVer (1).wav" id="10_tvgox"]
 [ext_resource type="AudioStream" uid="uid://o70fv8bdpp2y" path="res://sounds/win micro game.wav" id="10_uk740"]
 [ext_resource type="AudioStream" uid="uid://bi3nw5bmvt2lf" path="res://sounds/lose micro game.wav" id="11_ovl6n"]
 [ext_resource type="AudioStream" uid="uid://cxydrcf3w86s" path="res://sounds/intro new microgame.wav" id="12_o2iae"]
 [ext_resource type="Texture2D" uid="uid://c8jo5pac80lr0" path="res://AnimationFolder/boss angry.png" id="13_s06pl"]
+[ext_resource type="Texture2D" uid="uid://edthi8kk1wuj" path="res://AnimationFolder/PolicierAnims/GameOver.png" id="14_42kr2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3b24"]
 atlas = ExtResource("13_s06pl")
@@ -961,11 +964,48 @@ _data = {
 "disappear": SubResource("Animation_2oqry")
 }
 
+[sub_resource type="Animation" id="Animation_envj0"]
+resource_name = "GameOverGo"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8, 1, 1.2, 1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(47.75, -378), Vector2(47.75, 345), Vector2(47.75, 232), Vector2(47.75, 212), Vector2(47.75, 232), Vector2(47.75, 339), Vector2(47.75, 316), Vector2(47.75, 344)]
+}
+
+[sub_resource type="Animation" id="Animation_gfvrt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(47.75, -328)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_atvf5"]
+_data = {
+"GameOverGo": SubResource("Animation_envj0"),
+"RESET": SubResource("Animation_gfvrt")
+}
+
 [node name="WarioWareICAN" type="Node2D"]
 position = Vector2(565.25, 4)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-565.25, -4)
+position = Vector2(-1022.25, -162)
 sprite_frames = SubResource("SpriteFrames_8wit4")
 animation = &"angryBoss"
 
@@ -980,20 +1020,30 @@ position = Vector2(8.75, 309)
 [node name="TransitionManager" type="Node2D" parent="."]
 script = ExtResource("1_u5e1s")
 
-[node name="ohh___ courbe rouge" type="AudioStreamPlayer" parent="TransitionManager"]
-stream = ExtResource("8_7ffxn")
+[node name="Music" type="AudioStreamPlayer" parent="TransitionManager"]
+stream = ExtResource("4_4bonf")
+volume_db = -4.308
 
-[node name="yay ! courbe verte" type="AudioStreamPlayer" parent="TransitionManager"]
+[node name="ohh__" type="AudioStreamPlayer" parent="TransitionManager"]
+stream = ExtResource("8_7ffxn")
+volume_db = -10.806
+
+[node name="yay_" type="AudioStreamPlayer" parent="TransitionManager"]
 stream = ExtResource("9_k3t7t")
+volume_db = -17.231
 
 [node name="win_minijeu" type="AudioStreamPlayer" parent="TransitionManager"]
 stream = ExtResource("10_uk740")
 
 [node name="introNewMicroGame" type="AudioStreamPlayer" parent="TransitionManager"]
 stream = ExtResource("12_o2iae")
+volume_db = -6.172
 
 [node name="lose_minijeu" type="AudioStreamPlayer" parent="TransitionManager"]
 stream = ExtResource("11_ovl6n")
+
+[node name="GameOver" type="AudioStreamPlayer" parent="TransitionManager"]
+stream = ExtResource("10_tvgox")
 
 [node name="Node2D" type="Node2D" parent="TransitionManager"]
 
@@ -1088,5 +1138,19 @@ libraries = {
 "": SubResource("AnimationLibrary_3n1ki")
 }
 autoplay = "Bopping"
+
+[node name="GameOverScreen" type="Node2D" parent="TransitionManager/Node2D"]
+position = Vector2(47.75, -328)
+scale = Vector2(2.59451, 2.59351)
+
+[node name="GameOver" type="Sprite2D" parent="TransitionManager/Node2D/GameOverScreen"]
+position = Vector2(8.47945, -15.0376)
+scale = Vector2(1.04852, 1.13866)
+texture = ExtResource("14_42kr2")
+
+[node name="GameOverAnim" type="AnimationPlayer" parent="TransitionManager/Node2D/GameOverScreen"]
+libraries = {
+"": SubResource("AnimationLibrary_atvf5")
+}
 
 [connection signal="timeout" from="TransitionManager/Node2D/Timer" to="TransitionManager" method="_on_timer_timeout"]

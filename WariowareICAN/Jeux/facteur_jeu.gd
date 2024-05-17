@@ -24,6 +24,7 @@ var droite : bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$DogBark.play()
+	$MusicFacteur.play()
 	timer.start()
 	pass # Replace with function body.
 
@@ -45,7 +46,7 @@ func _process(delta):
 				droite = false
 				print(pédalage)
 		
-	if  pédalage > 15 :
+	if  pédalage > 11 :
 		Gamewon = true;
 		
 	if timer.time_left < 0.5 && Gamewon == false && isgameplaying == true:
