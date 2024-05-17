@@ -8,6 +8,9 @@ var rng = RandomNumberGenerator.new()
 @onready var scoreLabel = $Node2D/Score
 @onready var timer = $Node2D/Timer
 
+@onready var win_lose_animation = $Node2D/WinLoseAnimation
+
+
 var Micro : Array = ["res://Jeux/facteur_jeu.tscn","res://Jeux/pizza_yolocharacter.tscn","res://Jeux/PoliceJeu.tscn"]
 
 @onready var anim_transit = $Node2D/Person1/AnimationPlayer
@@ -37,6 +40,7 @@ func _process(delta):
 
 func _changelevel():
 	scoreLabel.visible = false
+	win_lose_animation.play("Entrée")
 	randomnumber = rng.randi_range(0,2)
 	var microgame : String = Micro[randomnumber]
 	var game : = load(microgame)
@@ -50,8 +54,9 @@ func _waslevelwon() :
 	
 	timer.start()
 	transition_animation_player.play("dezoomin")
+	win_lose_animation.play("WinAnim")
 	var tween = create_tween()
-	tween.tween_property(monchild, "scale",Vector2(0.5,0.5), 1)
+	tween.tween_property(monchild, "scale",Vector2(0.5,0.5),0.01)
 	tween.tween_callback(monchild.queue_free)
 	score += 1
 	scoreLabel.visible = true
@@ -60,11 +65,11 @@ func _waslevelwon() :
 	
 	
 func _waslevellost():
-	var anim = Vies[0].get_node("AnimationPlayer")
+	var anim = Vies[lives].get_node("AnimationPlayer")
 	lives = lives - 1
 	
 	anim.play("disappear")
-	
+	win_lose_animation.play("LoseAnim")
 	$lose_minijeu.play()
 	
 	timer.start()

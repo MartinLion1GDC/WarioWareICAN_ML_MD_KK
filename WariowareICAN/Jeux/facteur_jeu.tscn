@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dnf61b1smsoyn"]
+[gd_scene load_steps=44 format=3 uid="uid://dnf61b1smsoyn"]
 
 [ext_resource type="Script" path="res://Jeux/facteur_jeu.gd" id="1_0uh8m"]
 [ext_resource type="Texture2D" uid="uid://2ms075qsef1x" path="res://AnimationFolder/FacteurAnims/pixel_art_WARIOWARE_3.png" id="2_jwdfp"]
@@ -11,6 +11,68 @@
 [ext_resource type="Texture2D" uid="uid://djlkxhblh2oqn" path="res://AnimationFolder/FacteurAnims/LETTRE_D-Sheet.png" id="8_pvrgj"]
 [ext_resource type="AudioStream" uid="uid://bruu8pspcy4fy" path="res://sounds/cute dog - win facteur.wav" id="10_0hwb1"]
 [ext_resource type="AudioStream" uid="uid://ct81ymp3ljpl6" path="res://sounds/dog bark - facteur.wav" id="11_llyxl"]
+
+[sub_resource type="Animation" id="Animation_olq22"]
+resource_name = "backgroundMoving"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-855, 60.7499), Vector2(2120, 60.7499)]
+}
+
+[sub_resource type="Animation" id="Animation_y06ve"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-855, 60.7499)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5ts5"]
+_data = {
+"RESET": SubResource("Animation_y06ve"),
+"backgroundMoving": SubResource("Animation_olq22")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjwmd"]
+atlas = ExtResource("2_jwdfp")
+region = Rect2(44, 126, 55, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fduar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjwmd")
+}],
+"loop": true,
+"name": &"boite aux lettres",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wlqd"]
 atlas = ExtResource("3_0memv")
@@ -222,31 +284,6 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rjwmd"]
-atlas = ExtResource("2_jwdfp")
-region = Rect2(44, 126, 55, 31)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fduar"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rjwmd")
-}],
-"loop": true,
-"name": &"boite aux lettres",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation_1",
-"speed": 5.0
-}]
-
 [node name="FacteurJeu" type="Node2D"]
 position = Vector2(0, 237)
 script = ExtResource("1_0uh8m")
@@ -258,19 +295,31 @@ stream = ExtResource("10_0hwb1")
 stream = ExtResource("11_llyxl")
 
 [node name="BackgroundLongFacteur" type="Sprite2D" parent="."]
-position = Vector2(-631, 194)
-scale = Vector2(0.29537, 0.29537)
+position = Vector2(-855, 60.7499)
+scale = Vector2(0.542129, 0.542129)
 texture = ExtResource("2_u6rwb")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BackgroundLongFacteur"]
+libraries = {
+"": SubResource("AnimationLibrary_u5ts5")
+}
+autoplay = "backgroundMoving"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BackgroundLongFacteur"]
+position = Vector2(-3373.73, -414.569)
+scale = Vector2(4.95358, 4.95358)
+sprite_frames = SubResource("SpriteFrames_fduar")
+animation = &"boite aux lettres"
+
 [node name="angryDOgAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(438, 183)
-scale = Vector2(1.36755, 1.37278)
+position = Vector2(500.61, 29.7643)
+scale = Vector2(3.26481, 3.2773)
 sprite_frames = SubResource("SpriteFrames_5xqym")
 animation = &"angry dog"
 frame_progress = 0.70472
 
 [node name="ArrowPressinganims" type="AnimatedSprite2D" parent="."]
-position = Vector2(271.4, 50.25)
+position = Vector2(271.4, -387)
 scale = Vector2(0.477, 0.477)
 sprite_frames = SubResource("SpriteFrames_junid")
 autoplay = "default"
@@ -281,22 +330,23 @@ frame_progress = 0.666605
 wait_time = 3.0
 
 [node name="ToucheQAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(117, 172)
-scale = Vector2(1.71212, 1.71212)
+position = Vector2(84.5454, 39.6363)
+scale = Vector2(3.06439, 3.06439)
 sprite_frames = SubResource("SpriteFrames_mq31g")
 animation = &"Qtouche"
 frame_progress = 0.554538
 
 [node name="facteurAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(207, 169)
-scale = Vector2(1.71212, 1.71212)
+position = Vector2(217, 23)
+scale = Vector2(3.97727, 3.97727)
 sprite_frames = SubResource("SpriteFrames_yd60v")
 animation = &"facteur"
+autoplay = "facteur"
 frame_progress = 0.28067
 
 [node name="ToucheDAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(300, 175)
-scale = Vector2(1.5625, 1.5625)
+position = Vector2(347.25, 27.8409)
+scale = Vector2(3.53125, 3.53125)
 sprite_frames = SubResource("SpriteFrames_mgtxo")
 animation = &"DTouch"
 frame_progress = 0.193508
@@ -304,17 +354,11 @@ frame_progress = 0.193508
 [node name="TexteStartNode" parent="." instance=ExtResource("5_qupsy")]
 
 [node name="Label" parent="TexteStartNode" index="0"]
-offset_left = 268.0
-offset_top = -81.0
-offset_right = 608.0
-offset_bottom = 114.0
+offset_left = 26.0
+offset_top = -125.0
+offset_right = 366.0
+offset_bottom = 70.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-324.379, 166.25)
-scale = Vector2(1.82258, 1.82258)
-sprite_frames = SubResource("SpriteFrames_fduar")
-animation = &"boite aux lettres"
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 

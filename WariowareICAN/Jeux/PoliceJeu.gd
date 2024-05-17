@@ -12,7 +12,7 @@ signal levelwon
 signal levellost
 
 var Gamewon : bool = false
-
+var tooearly : bool = false
 
 var time : float = 6.0
 var rng = RandomNumberGenerator.new()
@@ -21,7 +21,6 @@ var myrandomnumber : float
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	myrandomnumber = rng.randf_range(2.0, 4.0)	
-	print(time)
 	print(myrandomnumber)
 	animated_sprite.play("PolicierNotWatching")
 	voleur_animations.play("NotStealing")
@@ -32,7 +31,6 @@ func _ready():
 func _startGame():
 	if isgameplaying == true :
 		timer.start()
-		print("timerStarted")
 		isgameplaying = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,18 +38,23 @@ func _process(delta):
 	time = timer.time_left
 	print(time)
 		
-	if time < myrandomnumber + 0.8 && time > myrandomnumber:
-		print("ChatIsAboutToSteal")
+	if time < myrandomnumber + 0.8 && time > myrandomnumber && tooearly == false:
 		voleur_animations.play("AboutTosteal")
+		if Input.is_action_just_pressed("Action") :
+			tooearly = true
+			animated_sprite.play("PolicierFailed")
+			voleur_animations.play("Tooearly")
+			Gamewon = false
 		
-		pass
-	elif time < myrandomnumber && time > myrandomnumber - 1.2 :
+		
+	elif time < myrandomnumber && time > myrandomnumber - 1.2 && tooearly == false:
 			if Gamewon == false :			
 				voleur_animations.play("STealing")
 				
+					
 				$GrandmaLose.play()
 				
-			if Input.is_action_just_pressed("PolicierTurnAround") :
+			if Input.is_action_just_pressed("Action") :
 				animated_sprite.play("PolicierWatchSucceed")
 				voleur_animations.play("Busted")
 				print("you Turned around in time")
@@ -59,7 +62,7 @@ func _process(delta):
 				$GrandmaWin.play()
 				
 				Gamewon = true
-	elif time < myrandomnumber - 1.2 && Gamewon == false :
+	elif time < myrandomnumber - 1.2 && Gamewon == false && tooearly == false:
 		
 		if animationplayedonce == false:
 			voleur_animations.play("GotAway")

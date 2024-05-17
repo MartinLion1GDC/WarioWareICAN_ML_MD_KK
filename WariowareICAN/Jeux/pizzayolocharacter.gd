@@ -32,7 +32,7 @@ func _physics_process(delta):
 		pizzagud.emit()
 		
 	
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("pressleft", "pressright")
 	if direction:
 		velocity.x = direction * SPEED
 	else:

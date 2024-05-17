@@ -4,6 +4,8 @@ extends Node2D
 
 @onready var lose_zone = $LoseZone
 
+@onready var pizzayoloanim = $CharacterBody2D/AnimatedSprite2D
+
 var Gamewon : bool = false
 
 signal levelwon 
@@ -25,11 +27,14 @@ func _process(delta):
 	pass
 
 func _pizzaonfloor():
+	pizzayoloanim.play("tristess")
 	Gamewon = false
 	pass
 
 func _pizzagood():
 	Gamewon = true
+	pizzayoloanim.play("hapiness")
+	
 	lose_zone.process_mode = Node.PROCESS_MODE_DISABLED
 	pass
 

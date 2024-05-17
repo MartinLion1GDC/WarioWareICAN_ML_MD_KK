@@ -242,7 +242,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_myi4o")
 }],
-"loop": true,
+"loop": false,
 "name": &"LoseAnim",
 "speed": 5.0
 }, {
@@ -277,7 +277,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cv1kp")
 }],
-"loop": true,
+"loop": false,
 "name": &"WinAnim",
 "speed": 5.0
 }]
@@ -933,6 +933,7 @@ position = Vector2(-3.25, 320)
 scale = Vector2(15.7083, 15.7083)
 sprite_frames = SubResource("SpriteFrames_lou8n")
 animation = &"Entrée"
+autoplay = "Entrée"
 
 [node name="Score" type="Label" parent="TransitionManager/Node2D"]
 offset_left = -131.25
@@ -951,7 +952,8 @@ scale = Vector2(10, 10)
 
 [node name="Personsprites" type="AnimatedSprite2D" parent="TransitionManager/Node2D/Person1"]
 sprite_frames = SubResource("SpriteFrames_n8xeb")
-animation = &"NormalAnim"
+animation = &"StressAnim"
+autoplay = "StressAnim"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionManager/Node2D/Person1"]
 libraries = {
@@ -965,7 +967,8 @@ position = Vector2(-157.25, 476)
 [node name="Personsprites" type="AnimatedSprite2D" parent="TransitionManager/Node2D/Person2"]
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_xlnlb")
-animation = &"NormalAnim"
+animation = &"StressAnim"
+autoplay = "StressAnim"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionManager/Node2D/Person2"]
 root_node = NodePath("../Personsprites")
@@ -980,7 +983,8 @@ position = Vector2(104.75, 479)
 [node name="Personsprites" type="AnimatedSprite2D" parent="TransitionManager/Node2D/Person3"]
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_mlw8u")
-animation = &"NormalAnim"
+animation = &"StressAnim"
+autoplay = "StressAnim"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionManager/Node2D/Person3"]
 root_node = NodePath("../Personsprites")
@@ -995,7 +999,8 @@ position = Vector2(347.75, 480)
 [node name="Personsprites" type="AnimatedSprite2D" parent="TransitionManager/Node2D/Person4"]
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_dx4pn")
-animation = &"NormalAnim"
+animation = &"StressAnim"
+autoplay = "StressAnim"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionManager/Node2D/Person4"]
 root_node = NodePath("../Personsprites")

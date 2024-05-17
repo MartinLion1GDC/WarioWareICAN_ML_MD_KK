@@ -387,10 +387,6 @@ text = "Ne la Laisse pas Tomber"
 position = Vector2(-514, 1274)
 shape = SubResource("RectangleShape2D_6rmol")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-536, -358)
-shape = SubResource("RectangleShape2D_6rmol")
-
 [node name="Touche Q" type="AnimatedSprite2D" parent="."]
 position = Vector2(-861, 559)
 scale = Vector2(3.125, 3.125)
