@@ -5,6 +5,12 @@ extends Node2D
 
 @onready var voleur_animations = $voleurAnimations
 
+@onready var voleur_s_ong = $voleurSOng
+
+@onready var grandma_lose = $GrandmaLose
+
+@onready var grandma_win = $GrandmaWin
+
 var isgameplaying : bool = true
 var animationplayedonce : bool = false
 
@@ -25,10 +31,13 @@ func _ready():
 	animated_sprite.play("PolicierNotWatching")
 	voleur_animations.play("NotStealing")
 	
+	voleur_s_ong.play()
+	
 	_startGame()
 	pass
 	
 func _startGame():
+	
 	if isgameplaying == true :
 		timer.start()
 		isgameplaying = false
@@ -52,14 +61,14 @@ func _process(delta):
 				voleur_animations.play("STealing")
 				
 					
-				$GrandmaLose.play()
+				#grandma_lose.play()
 				
 			if Input.is_action_just_pressed("Action") :
 				animated_sprite.play("PolicierWatchSucceed")
 				voleur_animations.play("Busted")
 				print("you Turned around in time")
 				
-				$GrandmaWin.play()
+				#grandma_win.play()
 				
 				Gamewon = true
 	elif time < myrandomnumber - 1.2 && Gamewon == false && tooearly == false:

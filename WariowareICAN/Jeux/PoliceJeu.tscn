@@ -632,14 +632,13 @@ texture = ExtResource("2_gabr8")
 
 [node name="voleurSOng" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_rwd4o")
-autoplay = true
 
 [node name="PolicierSuspicieux" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_o7k1k")
 
 [node name="GrandmaLose" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_5yq8v")
-volume_db = -42.983
+volume_db = 3.084
 
 [node name="GrandmaWin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_rwd4o")
