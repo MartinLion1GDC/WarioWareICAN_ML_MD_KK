@@ -10,6 +10,7 @@ var rng = RandomNumberGenerator.new()
 
 @onready var win_lose_animation = $Node2D/WinLoseAnimation
 
+@onready var game_over_anim = $GameOverScreen/GameOverAnim
 
 var Micro : Array = ["res://Jeux/facteur_jeu.tscn","res://Jeux/pizza_yolocharacter.tscn","res://Jeux/PoliceJeu.tscn"]
 
@@ -42,7 +43,6 @@ func _changelevel():
 	scoreLabel.visible = false
 	win_lose_animation.play("Entrée")
 	randomnumber = rng.randi_range(0,2)
-	randomnumber = 2
 	var microgame : String = Micro[randomnumber]
 	var game : = load(microgame)
 	monchild = game.instantiate()
@@ -97,5 +97,6 @@ func _on_timer_timeout():
 	
 	
 func Game_over():
+	game_over_anim.play("GameOverGo")
 	print("Gameover")
 	pass
