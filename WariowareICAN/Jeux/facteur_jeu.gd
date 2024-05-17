@@ -32,7 +32,7 @@ func _process(delta):
 				droite = false
 				print(pédalage)
 		
-	if  pédalage > 20 :
+	if  pédalage > 15 :
 		Gamewon = true;
 
 func _on_game_timer_timeout():

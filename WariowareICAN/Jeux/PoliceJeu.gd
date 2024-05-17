@@ -6,6 +6,7 @@ extends Node2D
 @onready var voleur_animations = $voleurAnimations
 
 var isgameplaying : bool = true
+var tooEarly : bool = false
 var animationplayedonce : bool = false
 
 signal levelwon 
@@ -38,22 +39,28 @@ func _startGame():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	time = timer.time_left
-	print(time)
 		
-	if time < myrandomnumber + 0.8 && time > myrandomnumber:
+	if time < myrandomnumber + 0.8 && time > myrandomnumber && tooEarly == false:
 		print("ChatIsAboutToSteal")
 		voleur_animations.play("AboutTosteal")
-		pass
-	elif time < myrandomnumber && time > myrandomnumber - 1.2 :
-			if Gamewon == false :			
+		
+		if Input.is_action_just_pressed("Action"):
+			voleur_animations.play("TooEarly")
+			Gamewon = false
+			tooEarly = true
+			
+	elif time < myrandomnumber && time > myrandomnumber - 1.3 :
+			if Gamewon == false  && tooEarly == false :			
 				voleur_animations.play("STealing")
+			elif tooEarly == true :
+				animated_sprite.play("PolicierFailed")
 				
-			if Input.is_action_just_pressed("PolicierTurnAround") :
+			if Input.is_action_just_pressed("Action") && tooEarly == false:
 				animated_sprite.play("PolicierWatchSucceed")
 				voleur_animations.play("Busted")
 				print("you Turned around in time")
 				Gamewon = true
-	elif time < myrandomnumber - 1.2 && Gamewon == false :
+	elif time < myrandomnumber - 1.3 && Gamewon == false && tooEarly == false:
 		
 		if animationplayedonce == false:
 			voleur_animations.play("GotAway")
