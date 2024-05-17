@@ -5,6 +5,11 @@ extends Node2D
 @onready var Dog_anim = $Iench/Dog_anm
 @onready var angry_d_og_anim = $Iench/angryDOgAnim
 
+@onready var facteur_anim = $Facteur/facteurAnim
+@onready var fateur = $Facteur/Fateur
+
+
+
 signal levelwon 
 signal levellost
 
@@ -28,12 +33,14 @@ func _process(delta):
 	if isgameplaying == true :
 		if Input.is_action_just_pressed("pressleft") :
 			if droite == false :
+				facteur_anim.position.x -= 4
 				pédalage += 1
 				droite = true
 				print(pédalage)
 			
 		elif Input.is_action_just_pressed("pressright") :
 			if droite == true :
+				facteur_anim.position.x -= 4
 				pédalage += 1
 				droite = false
 				print(pédalage)
@@ -47,6 +54,7 @@ func _process(delta):
 		isgameplaying = false
 	elif timer.time_left < 0.5 && Gamewon == true && isgameplaying == true:
 		print("winanim")
+		fateur.play("GotAway")
 		angry_d_og_anim.play("cute puppy")
 		isgameplaying = false
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dnf61b1smsoyn"]
+[gd_scene load_steps=52 format=3 uid="uid://dnf61b1smsoyn"]
 
 [ext_resource type="Script" path="res://Jeux/facteur_jeu.gd" id="1_0uh8m"]
 [ext_resource type="Texture2D" uid="uid://2ms075qsef1x" path="res://AnimationFolder/FacteurAnims/pixel_art_WARIOWARE_3.png" id="2_jwdfp"]
@@ -73,6 +73,59 @@ animations = [{
 "name": &"new_animation_1",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_on4rn"]
+resource_name = "GotAway"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -237), Vector2(-276, -237)]
+}
+
+[sub_resource type="Animation" id="Animation_57to1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -237)]
+}
+
+[sub_resource type="Animation" id="Animation_wg4jr"]
+resource_name = "Normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(158, -237)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6tpxl"]
+_data = {
+"GotAway": SubResource("Animation_on4rn"),
+"Normal": SubResource("Animation_wg4jr"),
+"RESET": SubResource("Animation_57to1")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b0g30"]
 atlas = ExtResource("2_jwdfp")
@@ -170,9 +223,9 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="Animation" id="Animation_irqjd"]
-resource_name = "gettingcloser"
-length = 3.0
+[sub_resource type="Animation" id="Animation_qv5cd"]
+resource_name = "Jumpthemailman"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -180,10 +233,10 @@ tracks/0/path = NodePath("..:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(958, 33), Vector2(350, 33)]
+"values": [Vector2(350, 33), Vector2(292, 1.00001), Vector2(261, 24), Vector2(244, 31)]
 }
 
 [sub_resource type="Animation" id="Animation_iolyt"]
@@ -201,9 +254,9 @@ tracks/0/keys = {
 "values": [Vector2(958, 33)]
 }
 
-[sub_resource type="Animation" id="Animation_qv5cd"]
-resource_name = "Jumpthemailman"
-length = 0.5
+[sub_resource type="Animation" id="Animation_irqjd"]
+resource_name = "gettingcloser"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -211,10 +264,10 @@ tracks/0/path = NodePath("..:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(350, 33), Vector2(292, 1.00001), Vector2(261, 24), Vector2(244, 31)]
+"values": [Vector2(958, 33), Vector2(350, 33)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hhba3"]
@@ -389,8 +442,18 @@ scale = Vector2(4.95358, 4.95358)
 sprite_frames = SubResource("SpriteFrames_fduar")
 animation = &"boite aux lettres"
 
-[node name="facteurAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(217, 23)
+[node name="Facteur" type="Node2D" parent="."]
+position = Vector2(0, -237)
+
+[node name="Fateur" type="AnimationPlayer" parent="Facteur"]
+root_node = NodePath("../facteurAnim")
+libraries = {
+"": SubResource("AnimationLibrary_6tpxl")
+}
+autoplay = "Normal"
+
+[node name="facteurAnim" type="AnimatedSprite2D" parent="Facteur"]
+position = Vector2(112, 260)
 scale = Vector2(3.97727, 3.97727)
 sprite_frames = SubResource("SpriteFrames_yd60v")
 animation = &"facteur"
@@ -424,15 +487,15 @@ frame_progress = 0.666605
 wait_time = 3.5
 
 [node name="ToucheQAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(84.5454, 39.6363)
-scale = Vector2(3.06439, 3.06439)
+position = Vector2(18, -139)
+scale = Vector2(3.42803, 3.42803)
 sprite_frames = SubResource("SpriteFrames_mq31g")
 animation = &"Qtouche"
 autoplay = "Qtouche"
 frame_progress = 0.554538
 
 [node name="ToucheDAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(347.25, 27.8409)
+position = Vector2(166, -144)
 scale = Vector2(3.53125, 3.53125)
 sprite_frames = SubResource("SpriteFrames_mgtxo")
 animation = &"DTouch"

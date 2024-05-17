@@ -1,13 +1,14 @@
-[gd_scene load_steps=47 format=3 uid="uid://dd8wxif18c5t2"]
+[gd_scene load_steps=54 format=3 uid="uid://dd8wxif18c5t2"]
 
 [ext_resource type="Script" path="res://Jeux/PoliceJeu.gd" id="1_78lwp"]
 [ext_resource type="PackedScene" uid="uid://bgrkr08vpsgeu" path="res://Policier.tscn" id="1_fi10d"]
 [ext_resource type="Texture2D" uid="uid://s7ukby80855j" path="res://AnimationFolder/PolicierAnims/décor.PNG" id="2_gabr8"]
+[ext_resource type="AudioStream" uid="uid://bou75vla6w1ri" path="res://AnimationFolder/PizzaYolo/BoleurSong.wav" id="5_rwd4o"]
 [ext_resource type="Texture2D" uid="uid://pyus278neas4" path="res://AnimationFolder/PolicierAnims/visuelsjeupolicier-Sheevoleur2t.png" id="7_sp6qh"]
 [ext_resource type="PackedScene" uid="uid://bqbac1ikd524p" path="res://texte.tscn" id="9_rfc4r"]
+[ext_resource type="Texture2D" uid="uid://db0benca86l42" path="res://AnimationFolder/PolicierAnims/LETTRE_Z-Sheet.png" id="9_wooi6"]
 [ext_resource type="AudioStream" uid="uid://mgpd0ccgj1g7" path="res://sounds/dog hhmmm  - jeu policier.wav" id="10_o7k1k"]
 [ext_resource type="AudioStream" uid="uid://dm772gjyiob6u" path="res://sounds/grandma scream - lose policier.wav" id="11_5yq8v"]
-[ext_resource type="AudioStream" uid="uid://dce8ekbpa6ny4" path="res://sounds/grandma laugh - win policier.wav" id="12_w3ggx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6klrd"]
 atlas = ExtResource("7_sp6qh")
@@ -565,13 +566,73 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_etp8u"]
+atlas = ExtResource("9_wooi6")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e6tn"]
+atlas = ExtResource("9_wooi6")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53rl4"]
+atlas = ExtResource("9_wooi6")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87sh1"]
+atlas = ExtResource("9_wooi6")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujssw"]
+atlas = ExtResource("9_wooi6")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g6a7b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etp8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e6tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53rl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87sh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etp8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e6tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53rl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87sh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujssw")
+}],
+"loop": false,
+"name": &"lettreZ",
+"speed": 5.0
+}]
+
 [node name="PoliceJeu" type="Node2D"]
 position = Vector2(0, 8)
 script = ExtResource("1_78lwp")
 
 [node name="Décor" type="Sprite2D" parent="."]
-position = Vector2(-102, 358.5)
+position = Vector2(-39.1233, 327)
+scale = Vector2(1.12329, 1.12329)
 texture = ExtResource("2_gabr8")
+
+[node name="voleurSOng" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rwd4o")
+autoplay = true
 
 [node name="PolicierSuspicieux" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_o7k1k")
@@ -581,20 +642,20 @@ stream = ExtResource("11_5yq8v")
 volume_db = -42.983
 
 [node name="GrandmaWin" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_w3ggx")
+stream = ExtResource("5_rwd4o")
 
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 6.0
 
 [node name="PolicierAnimations" parent="." instance=ExtResource("1_fi10d")]
-position = Vector2(-247, 481.5)
-scale = Vector2(1.73427, 1.73427)
+position = Vector2(-235.122, 465.663)
+scale = Vector2(1.98172, 1.98172)
 frame = 1
 frame_progress = 0.454481
 
 [node name="voleurAnimations" type="AnimatedSprite2D" parent="."]
-position = Vector2(112, 251.5)
-scale = Vector2(1.57711, 1.57711)
+position = Vector2(188, 192)
+scale = Vector2(2.05809, 2.05809)
 sprite_frames = SubResource("SpriteFrames_e4pf3")
 animation = &"Tooearly"
 autoplay = "NotStealing"
@@ -609,6 +670,12 @@ offset_bottom = 516.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Attrappe le la main
  dans le sac"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-193, 237)
+scale = Vector2(3.70833, 3.70833)
+sprite_frames = SubResource("SpriteFrames_g6a7b")
+animation = &"lettreZ"
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_timer_timeout"]
 
