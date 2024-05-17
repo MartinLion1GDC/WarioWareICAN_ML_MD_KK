@@ -1,11 +1,18 @@
-[gd_scene load_steps=24 format=3 uid="uid://b2tlxvih1jqyf"]
+[gd_scene load_steps=51 format=3 uid="uid://b2tlxvih1jqyf"]
 
 [ext_resource type="Script" path="res://Jeux/pizzayolocharacter.gd" id="1_feyxn"]
 [ext_resource type="Script" path="res://Jeux/pizza_yoloJeu.gd" id="1_nqa1h"]
-[ext_resource type="Texture2D" uid="uid://cb4xohr6s44ji" path="res://AnimationFolder/decord_pizzaiolo.png" id="2_rj1bn"]
 [ext_resource type="Texture2D" uid="uid://cx6l6ut07e0or" path="res://AnimationFolder/PizzaYolo/Pizzaiolo-Sheet.png" id="3_a8ymx"]
+[ext_resource type="Texture2D" uid="uid://sbwqt4b11x1c" path="res://décor.png" id="3_oxuyq"]
+[ext_resource type="AudioStream" uid="uid://bn0n1gsn5p7r2" path="res://sounds/italian_musique.wav" id="3_xx7pw"]
 [ext_resource type="Texture2D" uid="uid://cu7c2sf6vd5ae" path="res://AnimationFolder/PizzaYolo/Pizza-Sheet.png" id="4_jqn7e"]
 [ext_resource type="PackedScene" uid="uid://bqbac1ikd524p" path="res://texte.tscn" id="5_748ug"]
+[ext_resource type="Texture2D" uid="uid://dctrnuwn3ve23" path="res://AnimationFolder/PizzaYolo/LETTRE Q-Sheet.png" id="7_d7mu1"]
+[ext_resource type="Texture2D" uid="uid://c4wdw7ktr1h1n" path="res://AnimationFolder/PizzaYolo/LETTRE D-Sheet.png" id="8_kwn7p"]
+[ext_resource type="Texture2D" uid="uid://ddoi2rwijgbcu" path="res://AnimationFolder/comptoir.png" id="9_2l8m7"]
+[ext_resource type="AudioStream" uid="uid://bpbgfiol8hsqs" path="res://sounds/mama mia - defaite piza.wav" id="10_wxkhv"]
+[ext_resource type="AudioStream" uid="uid://cf63rpqblgbpg" path="res://sounds/bravo - victoire pizzailo.wav" id="12_p0yp0"]
+[ext_resource type="AudioStream" uid="uid://cbilruhpxt7gi" path="res://sounds/boing pizza.wav" id="13_dohgd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kt2bp"]
 atlas = ExtResource("3_a8ymx")
@@ -99,20 +106,176 @@ size = Vector2(1089, 87)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rmol"]
 size = Vector2(1241, 29)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y6k6"]
+atlas = ExtResource("7_d7mu1")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45cwb"]
+atlas = ExtResource("7_d7mu1")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgfnu"]
+atlas = ExtResource("7_d7mu1")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76pxu"]
+atlas = ExtResource("7_d7mu1")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2i0n"]
+atlas = ExtResource("7_d7mu1")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrsc5"]
+atlas = ExtResource("7_d7mu1")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dvx1"]
+atlas = ExtResource("8_kwn7p")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eh1qh"]
+atlas = ExtResource("8_kwn7p")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1l4k"]
+atlas = ExtResource("8_kwn7p")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uopn"]
+atlas = ExtResource("8_kwn7p")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sg2c"]
+atlas = ExtResource("8_kwn7p")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbmw8"]
+atlas = ExtResource("8_kwn7p")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnxp8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y6k6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45cwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgfnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76pxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2i0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrsc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dvx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eh1qh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1l4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uopn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sg2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbmw8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aprt8"]
+atlas = ExtResource("8_kwn7p")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48k45"]
+atlas = ExtResource("8_kwn7p")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5370"]
+atlas = ExtResource("8_kwn7p")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgcu0"]
+atlas = ExtResource("8_kwn7p")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vxsi"]
+atlas = ExtResource("8_kwn7p")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq146"]
+atlas = ExtResource("8_kwn7p")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjyqm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aprt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48k45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5370")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgcu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vxsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq146")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="PizzaYolo" type="Node2D"]
 position = Vector2(547, -367)
 script = ExtResource("1_nqa1h")
 
-[node name="DecordPizzaiolo" type="Sprite2D" parent="."]
-position = Vector2(-530.743, 738)
-scale = Vector2(1.64425, 1.64425)
-texture = ExtResource("2_rj1bn")
+[node name="mama_mia" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_wxkhv")
+
+[node name="Musique" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xx7pw")
+volume_db = -19.98
+
+[node name="Bravo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_p0yp0")
+
+[node name="Décor" type="Sprite2D" parent="."]
+position = Vector2(-516, 613)
+scale = Vector2(1.59229, 1.59229)
+texture = ExtResource("3_oxuyq")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-560.743, 735)
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_feyxn")
+
+[node name="boingPizza" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("13_dohgd")
+volume_db = 6.169
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(4, 3)
@@ -191,18 +354,36 @@ shape = SubResource("RectangleShape2D_ney6y")
 [node name="TexteStartNode" parent="." instance=ExtResource("5_748ug")]
 
 [node name="Label" parent="TexteStartNode" index="0"]
-offset_left = -14.0
-offset_top = 174.0
-offset_right = 419.0
-offset_bottom = 369.0
-text = "Ne la Laisse 
-pas Tomber"
+offset_left = -930.0
+offset_top = 252.0
+offset_right = -78.0
+offset_bottom = 447.0
+text = "Ne la Laisse pas Tomber"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-514, 1274)
 shape = SubResource("RectangleShape2D_6rmol")
+
+[node name="Touche Q" type="AnimatedSprite2D" parent="."]
+position = Vector2(-861, 665)
+scale = Vector2(3.125, 3.125)
+sprite_frames = SubResource("SpriteFrames_vnxp8")
+autoplay = "default"
+frame_progress = 0.15697
+
+[node name="Comptoir" type="Sprite2D" parent="."]
+position = Vector2(-505, 801)
+scale = Vector2(1.95066, 1.23145)
+texture = ExtResource("9_2l8m7")
+
+[node name="Touche D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-194, 648)
+scale = Vector2(2.93877, 2.93877)
+sprite_frames = SubResource("SpriteFrames_xjyqm")
+autoplay = "default"
+frame_progress = 0.615287
 
 [connection signal="body_entered" from="CharacterBody2D/mains" to="CharacterBody2D" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="." method="_on_timer_timeout"]

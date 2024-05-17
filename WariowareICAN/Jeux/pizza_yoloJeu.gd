@@ -15,9 +15,11 @@ func _ready():
 	monchild.pizzabad.connect(_pizzaonfloor)
 	monchild.pizzagud.connect(_pizzagood)
 	timer.start()
+	$Musique.play()
+	
 	pass # Replace with function body.
-
-
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -34,8 +36,10 @@ func _pizzagood():
 func _on_timer_timeout():
 	print("timerEnded")
 	if Gamewon == true :
+		$Bravo.play()
 		levelwon.emit()
 	else :
+		$mama_mia.play()
 		levellost.emit()
 	timer.stop()
 	pass # Replace with function body.
