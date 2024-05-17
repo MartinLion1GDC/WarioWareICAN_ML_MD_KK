@@ -49,6 +49,7 @@ func _process(delta):
 		
 	if time < myrandomnumber + 0.8 && time > myrandomnumber && tooearly == false:
 		voleur_animations.play("AboutTosteal")
+		$PolicierSuspicieux.play()
 		if Input.is_action_just_pressed("Action") :
 			tooearly = true
 			animated_sprite.play("PolicierFailed")
@@ -61,19 +62,20 @@ func _process(delta):
 				voleur_animations.play("STealing")
 				
 					
-				#grandma_lose.play()
+				
 				
 			if Input.is_action_just_pressed("Action") :
 				animated_sprite.play("PolicierWatchSucceed")
 				voleur_animations.play("Busted")
 				print("you Turned around in time")
 				
-				#grandma_win.play()
+				grandma_win.play()
 				
 				Gamewon = true
 	elif time < myrandomnumber - 1.2 && Gamewon == false && tooearly == false:
 		
 		if animationplayedonce == false:
+			grandma_lose.play()
 			voleur_animations.play("GotAway")
 			animationplayedonce = true
 		animated_sprite.play("PolicierFailed")
