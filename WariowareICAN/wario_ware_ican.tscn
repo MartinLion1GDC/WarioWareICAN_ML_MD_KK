@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://cj7k4l16sbail"]
+[gd_scene load_steps=96 format=3 uid="uid://cj7k4l16sbail"]
 
 [ext_resource type="Texture2D" uid="uid://dobk2ftd02mfu" path="res://AnimationFolder/décor principal.png" id="1_qfn7h"]
 [ext_resource type="Script" path="res://TransitionManager.gd" id="1_u5e1s"]
@@ -12,6 +12,29 @@
 [ext_resource type="AudioStream" uid="uid://o70fv8bdpp2y" path="res://sounds/win micro game.wav" id="10_uk740"]
 [ext_resource type="AudioStream" uid="uid://bi3nw5bmvt2lf" path="res://sounds/lose micro game.wav" id="11_ovl6n"]
 [ext_resource type="AudioStream" uid="uid://cxydrcf3w86s" path="res://sounds/intro new microgame.wav" id="12_o2iae"]
+[ext_resource type="Texture2D" uid="uid://c8jo5pac80lr0" path="res://AnimationFolder/boss angry.png" id="13_s06pl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3b24"]
+atlas = ExtResource("13_s06pl")
+region = Rect2(7, 16, 77, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgt6p"]
+atlas = ExtResource("13_s06pl")
+region = Rect2(84, 16, 77, 77)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8wit4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3b24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgt6p")
+}],
+"loop": true,
+"name": &"angryBoss",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_pc2sw"]
 resource_name = "Normal"
@@ -940,6 +963,11 @@ _data = {
 
 [node name="WarioWareICAN" type="Node2D"]
 position = Vector2(565.25, 4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-565.25, -4)
+sprite_frames = SubResource("SpriteFrames_8wit4")
+animation = &"angryBoss"
 
 [node name="DécorPrincipal" type="Sprite2D" parent="."]
 position = Vector2(30.75, 371)
